@@ -5,14 +5,14 @@ pipeline {
     }
     
     stages {
-        stage ('get code') {
+        stage ('Get code') {
 
             steps {
                 git branch: 'main', url: 'https://github.com/paratekinjal10/trial'
             }
         }
 
-        stage ('build') {
+        stage ('Build') {
 
             steps {
                 
@@ -21,5 +21,19 @@ pipeline {
             }
         }
 
+        stage("Sonar quality check") {
+
+            steps {
+
+              script{
+
+                    withSonarQubeEnv(installationName: 'sonar-server' , credentialsId: 'new-jen') {
+                    sh 'mvn sonar:sonar'
+                    }        
+
+                }
+            }
+        }
+          
     }
 }
