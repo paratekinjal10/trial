@@ -5,13 +5,6 @@ pipeline {
     tools{
         maven 'maven-3.9.1'
     }
-    
-    environment{
-    
-        registry = 'demokinjal/trial'
-        registryCredential = 'demokinjal'
-
-    }
 
     stages {
         stage ('Get code') {
@@ -56,18 +49,6 @@ pipeline {
                 }
                         
             }
-        }
-
-        stage("Build docker image"){
-    
-            steps{
-    
-                script {
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
-
-            }
-
         }
     }        
 }
