@@ -30,7 +30,7 @@ pipeline {
 
               script{
 
-                    withSonarQubeEnv(installationName: 'sonar-server2' , credentialsId: 'jen2') {
+                    withSonarQubeEnv(installationName: 'sonar-server2' , credentialsId: 'jenkins-sonar') {
                     sh 'mvn sonar:sonar'
                     }        
 
