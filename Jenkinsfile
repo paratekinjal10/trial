@@ -6,13 +6,13 @@ pipeline {
         maven 'maven-3.9.1'
     }
     
-    # environment{
+    // environment{
     
-    #     registry = 'demokinjal/trial'
-    #     registryCredential = 'demokinjal'
-    #     dockerImage = ''
+    //     registry = 'demokinjal/trial'
+    //     registryCredential = 'demokinjal'
+    //     dockerImage = ''
 
-    # }
+    // }
 
     environment{
     
@@ -65,17 +65,17 @@ pipeline {
             }
         }
 
-        # stage("Build docker image"){
+        // stage("Build docker image"){
     
-        #     steps{
+        //    steps{
     
-        #         script {
-        #             dockerImage = docker.build registry + ":$BUILD_NUMBER"
-        #         }
+        //        script {
+        //            dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        //        }
 
-        #     }
+        //    }
 
-        # }
+        //}
 
         stage("Push docker image to Nexus repo"){
     
